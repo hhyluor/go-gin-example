@@ -1,5 +1,6 @@
 package e
 
+//统一返参的响应码和信息
 const (
 	SUCCESS        = 200
 	ERROR          = 500

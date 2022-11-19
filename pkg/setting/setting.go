@@ -83,6 +83,7 @@ func Setup() {
 
 // mapTo map section
 func mapTo(section string, v interface{}) {
+	//选择配置文件映射到结构体
 	err := cfg.Section(section).MapTo(v)
 	if err != nil {
 		log.Fatalf("Cfg.MapTo %s err: %v", section, err)

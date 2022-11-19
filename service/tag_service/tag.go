@@ -17,6 +17,8 @@ import (
 	"github.com/EDDYCJY/go-gin-example/service/cache_service"
 )
 
+//对应数据的结构体,管理相关行为的类
+
 type Tag struct {
 	ID         int
 	Name       string

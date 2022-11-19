@@ -6,6 +6,8 @@ import (
 	"github.com/EDDYCJY/go-gin-example/pkg/e"
 )
 
+//继承结构体,添加处理函数,增加复用
+
 type Gin struct {
 	C *gin.Context
 }
@@ -17,6 +19,7 @@ type Response struct {
 }
 
 // Response setting gin.JSON
+//统一处理返参
 func (g *Gin) Response(httpCode, errCode int, data interface{}) {
 	g.C.JSON(httpCode, Response{
 		Code: errCode,

@@ -51,6 +51,7 @@ func CloseDB() {
 }
 
 // updateTimeStampForCreateCallback will set `CreatedOn`, `ModifiedOn` when creating
+//创建时自动设置创建时间,和更新时间
 func updateTimeStampForCreateCallback(scope *gorm.Scope) {
 	if !scope.HasError() {
 		nowTime := time.Now().Unix()
@@ -69,6 +70,7 @@ func updateTimeStampForCreateCallback(scope *gorm.Scope) {
 }
 
 // updateTimeStampForUpdateCallback will set `ModifiedOn` when updating
+//更新时自动更新时间
 func updateTimeStampForUpdateCallback(scope *gorm.Scope) {
 	if _, ok := scope.Get("gorm:update_column"); !ok {
 		scope.SetColumn("ModifiedOn", time.Now().Unix())
@@ -76,6 +78,7 @@ func updateTimeStampForUpdateCallback(scope *gorm.Scope) {
 }
 
 // deleteCallback will set `DeletedOn` where deleting
+//软删除逻辑
 func deleteCallback(scope *gorm.Scope) {
 	if !scope.HasError() {
 		var extraOption string
