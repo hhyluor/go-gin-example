@@ -64,6 +64,7 @@ var cfg *ini.File
 
 // Setup initialize the configuration instance
 func Setup() {
+	//配置文件统一初始化
 	var err error
 	cfg, err = ini.Load("conf/app.ini")
 	if err != nil {
